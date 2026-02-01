@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Sakshi Bagul — Data Analyst</title>
+
+    <link rel="icon" href="data:,">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    
+    </head>
+    
+
+    <style>
+        :root {
+            /* Vibrant Cyber-Space Palette */
+            --bg-deep: #030712; 
+            --accent: #a855f7; /* Electric Purple */
+            --accent-secondary: #3b82f6; /* Royal Blue */
+            --accent-glow: rgba(168, 85, 247, 0.4);
+            --muted: #94a3b8;
+            --text-light: #f8fafc;
+            --glass: rgba(15, 23, 42, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --radius: 20px;
+            --maxwidth: 1100px;
+        }
+
+        /* Animated Background Effect */
+        body {
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+            background-color: var(--bg-deep);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* The Nebula Background Effect */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(168, 85, 247, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(59, 130, 246, 0.15) 0%, transparent 40%);
+            z-index: -1;
+            animation: nebulaMove 20s infinite alternate ease-in-out;
+        }
+
+        @keyframes nebulaMove {
+            0% { transform: scale(1) translate(0, 0); }
+            100% { transform: scale(1.2) translate(2%, 2%); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .wrap {
+            max-width: var(--maxwidth);
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        /* Header Styling */
+        .top-center-header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: slideUp 1s ease-out;
+        }
+
+        .top-center-header .name {
+            font-size: clamp(40px, 8vw, 64px);
+            font-weight: 800;
+            background: linear-gradient(to right, #fff, var(--accent), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -2px;
+        }
+
+        .top-center-header .role {
+            font-size: 18px;
+            color: var(--accent-secondary);
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            margin-top: 10px;
+        }
+
+        /* Button Enhancements */
+        .btn {
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            gap: 10px;
+            align-items: center;
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px var(--accent-glow);
+        }
+
+        /* Floating Glass Sections */
+        section {
+            margin: 60px 0;
+            padding: 40px;
+            border-radius: var(--radius);
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            font-size: 28px;
+            color: var(--accent);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        /* Skills Progress Bars */
+        .skill {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid transparent;
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            border-color: var(--accent-secondary);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            margin-top: 12px;
+            overflow: hidden;
+        }
+
+        .bar i {
+            display: block;
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+            width: 0%;
+            transition: width 1.5s cubic-bezier(0.1, 0.5, 0.1, 1);
+        }
+
+        /* Project Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .project {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 30px;
+            border-radius: var(--radius);
+            border: 1px solid var(--glass-border);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            cursor: pointer;
+        }
+
+        .project:hover {
+            transform: translateY(-12px) scale(1.02);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6), 0 0 20px rgba(168, 85, 247, 0.2);
+        }
+
+        .tag {
+            background: rgba(168, 85, 247, 0.15);
+            color: #d8b4fe;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-right: 5px;
+        }
+
+        /* Contact Section */
+        .contact-card {
+            background: linear-gradient(145deg, rgba(168, 85, 247, 0.1), rgba(59, 130, 246, 0.1));
+            text-align: center;
+            border: 1px solid var(--accent);
+        }
+
+        /* Modal Styles */
+        .modal-backdrop {
+            position:fixed; inset:0; background:rgba(0,0,0,0.85);
+            backdrop-filter:blur(20px); display:none; justify-content:center;
+            align-items:center; z-index:9999; padding:20px;
+        }
+        .modal {
+            background: #0f172a;
+            width:100%; max-width:700px; padding:40px; border-radius:30px;
+            border: 1px solid var(--accent);
+            box-shadow: 0 0 60px rgba(168, 85, 247, 0.3);
+        }
+
+        /* Apply this to the parent container of your content */
+.main-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* This centers items horizontally */
+    justify-content: center;
+    text-align: center; /* This centers the text inside the elements */
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Ensure the About Me card has a max-width so it doesn't stretch too far */
+.about-card {
+    max-width: 900px; /* Adjust based on your preference */
+    width: 100%;
+    margin: 0 auto; /* Fallback centering */
+    text-align: left; /* Keeps the paragraph text readable while the box is centered */
+}
+    </style>
+</head>
+
+<body>
+
+<div class="wrap">
+
+    <header class="top-center-header">
+        <div class="name">Sakshi Bagul</div>
+        <div class="role">Data Analyst</div>
+    </header>
+
+    <div class="actions">
+        <a class="btn" href="CV/SAKSHI_B.pdf" download="Sakshi_Bagul_Resume"><i class="fa-solid fa-file"></i> Resume</a>
+        <a class="btn" href="mailto:bagulsakshi11@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
+        <a class="btn" href="https://www.linkedin.com/in/sakshi-bagul/" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        <a class="btn" href="https://github.com/Sakshibagul11" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+    </div>
+
+    <section>
+        <h2><i class="fa-solid fa-user-astronaut"></i> About Me</h2>
+        <p style="color:var(--muted); font-size:18px; font-weight: 300;">
+            Data Analyst with 6 months of experience transforming large operational datasets into actionable business insights. Skilled in SQL, Python & Power BI, with a proven record of automating reporting and improving decision efficiency by 35%. Known for translating complex data into clear KPIs that drive performance and planning.
+        </p>
+    </section>
+
+    <section>
+        <h2><i class="fa-solid fa-graduation-cap"></i> Education</h2>
+        <p style="font-size: 18px;">
+            <strong style="color: #fff;">B.E. Electronics & Telecommunication Engineering</strong><br>
+            <span style="color: var(--accent);">TSSM BSCOER, Pune</span> — <span style="color: var(--muted);">CGPA: 8.0</span>
+        </p>
+    </section>
+
+    <section>
+        <h2><i class="fa-solid fa-bolt"></i> Core Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill" data-percent="92">
+                <div class="label"><i class="fa-brands fa-python"></i> Python</div>
+                <div style="font-size: 12px; color: var(--muted);">Pandas, NumPy, Scikit-learn</div>
+                <div class="bar"><i style="width:0%"></i></div>
+            </div>
+            <div class="skill" data-percent="88">
+                <div class="label"><i class="fa-solid fa-database"></i> SQL</div>
+                <div style="font-size: 12px; color: var(--muted);">MySQL, ETL</div>
+                <div class="bar"><i style="width:0%"></i></div>
+            </div>
+            <div class="skill" data-percent="86">
+                <div class="label"><i class="fa-solid fa-chart-line"></i> Power BI</div>
+                <div style="font-size: 12px; color: var(--muted);">DAX, Data Modeling</div>
+                <div class="bar"><i style="width:0%"></i></div>
+            </div>
+            <div class="skill" data-percent="90">
+                <div class="label"><i class="fa-solid fa-file-excel"></i> Excel</div>
+                <div style="font-size: 12px; color: var(--muted);">Pivot Tables, Dashboards</div>
+                <div class="bar"><i style="width:0%"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+    <h2><i class="fa-solid fa-rocket"></i> Portfolio Showcase</h2>
+    <p style="color:var(--muted); margin-bottom:30px">Exploring patterns through data science and visualization.</p>
+
+    <div class="projects-grid">
+        
+        <div class="project" data-title="📊Bank Loan Analysis" 
+             data-problem="To analyze spatial-temporal lending trends and risk premiums across various demographic segments to identify high-yield, low-risk lending zones." 
+             data-data="50,000+ detailed loan applications including credit scores, debt-to-income ratios, interest distributions, and repayment patterns." 
+             data-steps="<ol><li>Executed Financial EDA in Python to map loan density and default risk heatmaps.</li><li>Developed DAX measures for Debt-to-Income (DTI) ratios and Weighted Average Cost of Capital (WACC).</li><li>Built an interactive Power BI dashboard with branch-level drill-through capabilities for portfolio monitoring.</li></ol>" 
+             data-impact="Identified hyper-local credit anomalies and high-demand 'prime' borrower segments, providing data-driven insights for strategic capital placement." 
+             data-link="https://github.com/Sakshibagul11/Bank-Loan-Analysis">
+            <div class="tags"><span class="tag">Power BI</span></div>
+            <h3>Bank Loan Analysis</h3>
+            <p style="color:var(--muted); font-size: 14px;">Created an interactive Bank Loan Financial dashboard analyzing credit volatility and lending density, enabling stakeholders to visualize ROI disparities and portfolio performance across various regions and branches.</p>
+        </div>
+
+        <div class="project" data-title="📊Airbnb Newyork" 
+             data-problem="To analyze spatial-temporal rental trends and pricing premiums across NYC's five boroughs to identify high-yield investment zones." 
+             data-data="48,000+ detailed listings including neighborhood metrics, property types, price distributions, and availability patterns." 
+             data-steps="<ol><li>Executed Geospatial EDA in Python to map listing density and price heatmaps.</li><li>Developed DAX measures for Occupancy Rates and Revenue per Available Room (RevPAR).</li><li>Built an interactive Power BI dashboard with neighborhood-level drill-through capabilities.</li></ol>" 
+             data-impact="Identified hyper-local pricing anomalies and high-demand 'hidden gem' neighborhoods, providing data-driven insights for strategic property placement." 
+             data-link="https://github.com/Sakshibagul11/Airbnb-EDA">
+            <div class="tags"><span class="tag">Python</span><span class="tag">EDA</span><span class="tag">Power BI</span></div>
+            <h3>Airbnb Newyork EDA</h3>
+            <p style="color:var(--muted); font-size: 14px;">Developed an interactive Airbnb New York dashboard analyzing over 40,000 listings to uncover pricing trends and occupancy drivers, enabling investors to visualize geographic ROI disparities and optimize listing strategies.</p>
+        </div>
+           
+           <div class="project" data-title="Electronics Retailers SQL Analysis" 
+     data-problem="To evaluate commercial performance and operational health by extracting key metrics from complex relational databases to identify revenue drivers and support inefficiencies." 
+     data-data="Relational SQL database containing tables for Customers, Orders, Products, Employees, and customer Support Tickets." 
+     data-steps="<ol><li>🛠️ Architected complex SQL joins and CTEs (Common Table Expressions) to aggregate multi-table sales and support data.</li><li>📈 Executed deep-dive queries to calculate Average Order Value (AOV), Customer Lifetime Value (CLV), and monthly revenue growth.</li><li>🎫 Analyzed support ticket resolution rates to correlate product performance with customer satisfaction levels.</li></ol>" 
+     data-impact="Delivered high-level business intelligence that highlighted top-performing regions and identified critical bottlenecks in customer support response times." 
+     data-link="https://github.com/Sakshibagul11/Electronics-Retailers-SQL">
+    <div class="tags"><span class="tag">SQL (MySQL)</span><span class="tag">Data Analysis</span></div>
+    <h3>Electronics Retailers SQL Analysis</h3>
+    <p style="color:var(--muted); font-size: 14px;">Utilized advanced SQL querying techniques to transform raw transactional data into strategic insights regarding sales trends, product demand, and operational efficiency. ✨</p>
+</div>
+
+        <div class="project" data-title="📊IBM HR Analytics" 
+             data-problem="To identify key drivers of employee turnover and provide actionable insights for improving workforce retention strategies." 
+             data-data="Comprehensive HR dataset featuring 1,470 employee records, covering satisfaction scores, income levels, and work-life balance metrics." 
+             data-steps="<ol><li>Performed Exploratory Data Analysis (EDA) to correlate attrition with salary and role tenure.</li><li>Implemented DAX measures to calculate real-time Turnover Rates and average Employee Satisfaction.</li><li>Developed a diagnostic dashboard to visualize retention disparities across departments.</li></ol>" 
+             data-impact="Identified critical churn factors like overtime and monthly income, enabling HR to implement data-driven intervention policies." 
+             data-link="https://github.com/Sakshibagul11/IBM-HR-Analytics"> 
+            <div class="tags"><span class="tag">Power BI</span></div>
+            <h3>IBM HR Analytics</h3>
+            <p style="color:var(--muted); font-size: 14px;">Developed a high-impact Power BI dashboard analyzing 1,470+ employee records to identify key attrition drivers, resulting in data-driven recommendations to improve retention.</p>
+        </div>
+
+        <div class="project" data-title="📊Crypto Currency Analysis" 
+             data-problem="To monitor global market volatility and asset flow to identify critical investment risks and liquidity bottlenecks." 
+             data-data="Comprehensive trade registry containing historical price action, market capitalization trends, and volume utilization." 
+             data-steps="<ol><li>Integrated heterogeneous blockchain datasets to create a unified financial data model.</li><li>Applied DAX for specialized market metrics including Moving Averages and Volatility Indices.</li><li>Designed a real-time visualization interface for monitoring price breakouts.</li></ol>" 
+             data-impact="Identified high-risk asset clusters and oversold market regions, enabling stakeholders to optimize portfolio allocation." 
+             data-link="https://github.com/Sakshibagul11/Crypto-Currency-Analysis-Power-BI-">
+            <div class="tags"><span class="tag">Power BI</span></div>
+            <h3>Crypto Currency Analysis</h3>
+            <p style="color:var(--muted); font-size: 14px;">Created an interactive Cryptocurrency dashboard analyzing price volatility and asset prevalence, enabling stakeholders to visualize market disparities across global exchanges.</p>
+        </div>
+
+        <div class="project" data-title="📊Customer Segmentation Analysis" 
+     data-problem="To identify distinct consumer behavioral patterns and purchasing habits to optimize targeted marketing strategies and improve customer retention." 
+     data-data="Transactional records and demographic datasets including recency, frequency, monetary (RFM) metrics, and historical purchase behavior." 
+     data-steps="<ol><li>Performed Exploratory Data Analysis (EDA) to treat outliers and understand distribution of customer spend.</li><li>Implemented segmentation logic to categorize customers into high-value, at-risk, and loyal cohorts.</li><li>Developed a Power BI dashboard to visualize segment movement and geographic concentration.</li></ol>" 
+     data-impact="Enabled personalized marketing campaigns resulting in higher conversion rates and identified underperforming segments for strategic intervention." 
+     data-link="https://github.com/Sakshibagul11/Customer-Segmentation-Analysis">
+    <div class="tags"><span class="tag">Power BI</span><span class="tag">Python</span></div>
+    <h3>Customer Segmentation Analysis</h3>
+    <p style="color:var(--muted); font-size: 14px;">Built an end-to-end analytical framework to segment customer bases using RFM modeling, providing actionable insights into purchasing lifecycles and brand loyalty.</p>
+</div>
+
+        <div class="project" 
+             data-title="📊Amazon Prime Video" 
+             data-problem="To evaluate content performance, viewer distribution, and platform growth trends in order to support data-driven content and regional strategy decisions."
+             data-data="Comprehensive streaming catalog dataset containing movies and TV shows with details on genres, release year, country availability, ratings, and duration."
+             data-steps="&lt;ol&gt;&lt;li&gt;Integrated multiple content attributes into a unified data model using Power Query.&lt;/li&gt;&lt;li&gt;Applied DAX to calculate key metrics including total titles, genre share, and yearly content growth.&lt;/li&gt;&lt;li&gt;Designed an interactive Power BI visualization interface to monitor content distribution and audience trends.&lt;/li&gt;&lt;/ol&gt;"
+             data-impact="Identified high-performing genres, regional content gaps, and release trends, enabling stakeholders to optimize content acquisition and platform expansion."
+             data-link="https://github.com/Sakshibagul11/Amazon-Prime-Video-">
+    
+             <div class="tags"><span class="tag">Power BI</span></div>
+            <h3>Amazon Prime Video</h3>
+    
+    
+
+    <p style="color:var(--muted); font-size: 14px;">
+        Created an interactive Amazon Prime Video Power BI dashboard analyzing content distribution, genre trends, and regional availability, enabling stakeholders to visualize platform growth and viewer preferences.
+    </p>
+</div>
+ 
+
+         <div class="project" data-title="Hospital Emergency Room Analysis" 
+     data-problem=" To monitor ER operational efficiency by analyzing patient flow, wait times, and department referrals to reduce bottlenecks and improve care quality." 
+     data-data="Comprehensive ER registry (2023-2024) containing patient demographics, arrival/discharge timestamps, satisfaction scores, and referral data." 
+     data-steps="<ol><li>🧹 Processed and cleaned heterogeneous healthcare logs using Power Query to ensure data integrity for 3,600+ unique patient records.</li><li>⏱️ Developed specialized DAX measures to calculate critical KPIs like Average Wait Time, Admission Ratios, and Peak Hour Heatmaps.</li><li>📊 Designed a multi-page interactive dashboard with drill-down capabilities for patient-level details and monthly trends.</li></ol>" 
+     data-impact="Identified peak late-night bottlenecks and specific demographic satisfaction gaps, providing actionable insights for staffing optimization and resource allocation." 
+     data-link="https://github.com/Sakshibagul11/Hospital-Emergency-Room">
+    <div class="tags"><span class="tag"> Power BI</span><span class="tag">Healthcare Analytics</span></div>
+    <h3>Hospital Emergency Room Analysis</h3>
+    <p style="color:var(--muted); font-size: 14px;">Developed an end-to-end clinical dashboard to visualize ER performance metrics, helping administrators track patient throughput and optimize departmental referral workflows. ✨</p>
+</div>
+
+        <div class="project" data-title="📊Ola Booking Analysis" 
+             data-problem="To monitor geographic demand disparities and ride traffic flow to identify critical supply gaps." 
+             data-data="Comprehensive booking registry containing customer demographics, ride cancellation prevalence, and vehicle resource utilization." 
+             data-steps="<ol><li>Integrated SQL booking datasets to create a unified geographic mobility data model.</li><li>Applied DAX for specialized operational metrics including booking success rates.</li><li>Designed a geospatial visualization interface for monitoring urban transit trends.</li></ol>" 
+             data-impact="Identified high-demand demographic clusters and underserved regions, enabling optimized fleet resource allocation." 
+             data-link="https://github.com/Sakshibagul11/Ola-Bookings-Analysis-SQL-Power-BI.">
+            <div class="tags"><span class="tag">Power BI</span><span class="tag">SQL</span></div>
+            <h3>Ola Booking Analysis</h3> <p style="color:var(--muted); font-size: 14px;">Created an interactive Ola Booking Geographic dashboard analyzing ride demographics and cancellation prevalence to visualize demand disparities across various sectors.</p>
+        </div>
+    </div> </section>
+
+    <section id="contact" class="contact-card">
+        <h2><i class="fa-solid fa-paper-plane"></i> Let's Connect</h2>
+        <div style="font-size: 20px;">
+            <p>Email: <a href="mailto:bagulsakshi11@gmail.com" style="color: var(--accent); text-decoration: none;">bagulsakshi11@gmail.com</a></p>
+            <p>Phone: <span style="color: var(--muted);">9325495017</span></p>
+        </div>
+    </section>
+
+    <footer style="text-align:center; color:var(--muted); padding: 40px 0;">
+        © 2026 Sakshi Bagul | Built with Passion & Data
+    </footer>
+</div>
+
+<div id="modalBackdrop" class="modal-backdrop">
+    <div class="modal">
+        <h3 id="modalTitle" style="color: var(--accent); font-size: 32px; margin-top: 0;"></h3>
+        <div style="margin: 20px 0;">
+            <h4 style="margin-bottom: 5px;">Goal</h4>
+            <p id="modalProblem" style="color: var(--muted);"></p>
+        </div>
+        <div style="margin: 20px 0;">
+            <h4 style="margin-bottom: 5px;">Impact</h4>
+            <div class="impact-box" id="modalImpact"></div>
+        </div>
+        <div class="links" style="margin-top: 30px;">
+            <a id="modalSource" class="primary" target="_blank">Explore Github</a>
+            <button onclick="document.getElementById('modalBackdrop').style.display='none'" style="background:none; border: 1px solid var(--muted); color: #fff; padding: 15px 30px; border-radius: 12px; cursor:pointer; margin-left: 10px;">Close</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Logic remains functional as per original
+    const projects = document.querySelectorAll('.project');
+    const backdrop = document.getElementById('modalBackdrop');
+    
+    projects.forEach(p => {
+        p.addEventListener('click', () => {
+            document.getElementById('modalTitle').textContent = p.dataset.title;
+            document.getElementById('modalProblem').textContent = p.dataset.problem;
+            document.getElementById('modalImpact').innerHTML = p.dataset.impact;
+            document.getElementById('modalSource').href = p.dataset.link;
+            backdrop.style.display = 'flex';
+        });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const bar = entry.target.querySelector('.bar i');
+                bar.style.width = entry.target.dataset.percent + '%';
+            }
+        });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.skill').forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
